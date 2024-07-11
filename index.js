@@ -26,6 +26,20 @@ function updateTime() {
       "hh:mm:ss [<small>]A[</small>]"
     );
   }
+
+  //Johannesburg
+  let JohannesburgElement = document.querySelector("#Johannesburg");
+
+  if (JohannesburgElement) {
+    let JohannesburgDateElement = JohannesburgElement.querySelector(".date");
+    let JohannesburgTimeElement = JohannesburgElement.querySelector(".time");
+    let JohannesburgTime = moment().tz("Africa/Johannesburg");
+
+    JohannesburgDateElement.innerHTML = JohannesburgTime.format("MMMM Do YYYY");
+    JohannesburgTimeElement.innerHTML = JohannesburgTime.format(
+      "hh:mm:ss [<small>]A[</small>]"
+    );
+  }
 }
 
 function updateCity(event) {
@@ -45,6 +59,9 @@ function updateCity(event) {
     <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format(
     "A"
   )}</small></div>
+  </div>
+  <div>
+    <a href="https://world-clock-by-daniella.netlify.app/">All Cities</a>
   </div>
   `;
 }
